@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta name="yandex-verification" content="63b9ceb31eca472f" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Доп. оборудование под защитой — опция к КАСКО</title>
+<meta content="Страхование дополнительного оборудования автомобиля без перечня комплектации. Выплата по первому страховому случаю." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg-page:#F3F6FC;
+    --bg-surface:#FFFFFF;
+    --bg-surface-alt:#EAF0FA;
+    --line:#E2E8F3;
+    --text-primary:#132043;
+    --text-muted:#5B6B85;
+    --brand-blue:#1A46B8;
+    --brand-blue-dark:#123484;
+    --brand-blue-pale:#E7EFFC;
+    --accent-gold:#9C6B1F;
+    --accent-gold-pale:#F7EEDC;
+    --accent-red:#D32F2F;
+    --accent-red-pale:#FBEAEA;
+    --accent-green:#237F52;
+    --accent-green-pale:#E3F3EA;
+    --radius-s:10px;
+    --radius-m:16px;
+    --radius-l:24px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-page);
+    color:var(--text-primary);
+    font-family:'Golos Text',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Golos Text',sans-serif;
+    letter-spacing:0.002em;
+    line-height:1.12;
+    font-weight:700;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent-gold);
+    margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px; background:var(--accent-gold);
+    display:inline-block;
+  }
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    font-family:'Golos Text',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    padding:15px 28px;
+    border-radius:999px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .btn:active{transform:scale(0.97);}
+  .btn-primary{
+    background:var(--brand-blue);
+    color:#fff;
+    box-shadow:0 10px 26px -10px rgba(26,70,184,0.55);
+  }
+  .btn-primary:hover{background:var(--brand-blue-dark); box-shadow:0 14px 32px -8px rgba(26,70,184,0.55); transform:translateY(-1px);}
+  .btn-ghost{
+    background:#fff;
+    border-color:var(--line);
+    color:var(--text-primary);
+  }
+  .btn-ghost:hover{border-color:var(--brand-blue); color:var(--brand-blue);}
+  .btn-block{width:100%;}
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav__row{
+    display:flex; align-items:center; gap:40px;
+    padding:14px 24px;
+  }
+  .nav__left{display:flex; align-items:center; gap:26px; flex-shrink:0;}
+  .nav__brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
+  .nav__logo-icon{
+    width:38px; height:38px; border-radius:10px; background:var(--brand-blue-pale);
+    border:1.5px solid var(--brand-blue); display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .nav__logo-icon svg{width:19px; height:19px; stroke:var(--brand-blue); fill:none; stroke-width:2.25; stroke-linecap:round; stroke-linejoin:round;}
+  .nav__logo{
+    font-family:'Golos Text',sans-serif;
+    font-weight:700;
+    font-size:11.5px;
+    line-height:1.35;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    color:var(--text-primary);
+  }
+  @media(max-width:420px){ .nav__logo{display:none;} }
+  .nav__links{display:flex; gap:26px; font-size:13.5px; color:var(--text-muted); flex-shrink:0;}
+  .nav__links a:hover{color:var(--brand-blue);}
+  .nav__cta{display:none; margin-left:auto; flex-shrink:0;}
+  @media(min-width:860px){ .nav__cta{display:inline-flex;} }
+  @media(max-width:999px){ .nav__links{display:none;} }
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:84px 0;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse 800px 400px at 88% -10%, rgba(26,70,184,0.07), transparent 60%),
+      radial-gradient(ellipse 600px 400px at 5% 110%, rgba(156,107,31,0.06), transparent 60%);
+  }
+  .hero__grid{
+    display:grid; grid-template-columns:1fr; gap:48px; align-items:center;
+    max-width:1160px; margin:0 auto; text-align:left;
+  }
+  @media(min-width:980px){ .hero__grid{grid-template-columns:1fr 1fr; gap:40px; align-items:start;} }
+  .hero h1{
+    text-align:left;
+    font-size:clamp(28px,3.6vw,40px);
+    margin-bottom:18px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--brand-blue);
+  }
+  .hero p.lead{
+    font-size:17px; color:var(--text-muted); max-width:480px; margin-bottom:32px;
+  }
+  .hero__subtitle-sm{
+    font-size:16px; line-height:1.6; color:var(--text-muted); max-width:520px;
+    margin-top:14px; margin-bottom:30px;
+  }
+  .hero__ctas{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:14px;}
+  .hero__stat{
+    font-size:13.5px; color:var(--text-muted); margin-bottom:26px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .hero__stat::before{
+    content:""; width:7px; height:7px; border-radius:50%; background:var(--accent-green); flex-shrink:0;
+    box-shadow:0 0 0 3px var(--accent-green-pale);
+  }
+  .hero__trust{
+    display:flex; flex-wrap:wrap; gap:24px;
+    padding-top:24px; border-top:1px solid var(--line);
+  }
+  .hero__trust span{display:flex; align-items:center; gap:9px; font-size:13px; color:var(--text-primary); font-weight:500;}
+  .hero__trust .ic{
+    width:30px; height:30px; border-radius:50%; background:var(--brand-blue-pale);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .hero__trust .ic svg{width:15px; height:15px; stroke:var(--brand-blue); stroke-width:2.25;}
+  /* hero visual: car + floating spec badges */
+  .hero__visual{position:relative; width:100%; max-width:480px; height:400px; margin:0 0 0 auto;}
+  .hero__visual .car-wrap{position:absolute; left:50%; top:58%; transform:translate(-50%,-50%); width:88%;}
+  .spec-badge{
+    position:absolute; background:var(--bg-surface); border:1px solid var(--line); border-radius:14px;
+    padding:9px 13px 8px; box-shadow:0 14px 28px -16px rgba(19,32,67,0.3);
+    display:flex; flex-direction:column; align-items:center; gap:5px;
+    font-size:10.5px; font-weight:600; color:var(--text-primary); text-align:center; white-space:nowrap;
+    z-index:2;
+  }
+  .spec-badge .ic{width:30px; height:30px; border-radius:50%; background:var(--brand-blue-pale); display:flex; align-items:center; justify-content:center;}
+  .spec-badge .ic svg{width:16px; height:16px; stroke:var(--brand-blue); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+  @media(max-width:640px){ .hero__visual{height:320px;} .spec-badge{transform:scale(0.82);} }
+  /* ---------- SECTION GENERIC ---------- */
+  section.block{padding:84px 0; border-bottom:1px solid var(--line);}
+  .block__intro{max-width:640px; margin:0 auto 48px; text-align:center;}
+  #pricing .block__intro{max-width:780px;}
+  .block h2{text-align:center;font-size:clamp(25px,3.4vw,36px); margin-bottom:14px; color:var(--text-primary);}
+  .block > .wrap > p.sub{color:var(--text-muted); font-size:16px;}
+  .block__intro h2{margin-bottom:14px;}
+  .block__intro p.sub{margin-bottom:0;}
+  /* advantages row */
+  .adv-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media(max-width:860px){ .adv-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:480px){ .adv-grid{grid-template-columns:1fr;} }
+  .adv-card{
+    background:var(--bg-surface); border:1px solid var(--line); border-radius:18px;
+    padding:26px; display:flex; flex-direction:column; align-items:center; text-align:center;
+    box-shadow:0 16px 40px -28px rgba(19,32,67,0.2);
+  }
+  .adv-card .ic-circle{
+    width:52px; height:52px; border-radius:50%; background:var(--brand-blue-pale);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-bottom:16px;
+  }
+  .adv-card .ic-circle svg{width:26px; height:26px; stroke:var(--brand-blue); color:var(--brand-blue); stroke-width:2.25; overflow:visible;}
+  .adv-card h3{font-size:16px; line-height:1.3; font-weight:700; letter-spacing:0; margin:0 0 8px;}
+  .adv-card p{font-size:14px; color:var(--text-muted); line-height:1.5; margin:0;}
+  /* how it works */
+  #how .block__intro{max-width:none;}
+  #how{background:#FFFFFF;}
+  #how .block__intro h2{color:#0A1A3A; font-size:36px; font-weight:700; margin-bottom:64px;}
+  #how .wrap{max-width:1200px;}
+  .steps-path{
+    display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; align-items:start; gap:6px;
+  }
+  @media(max-width:860px){
+    .steps-path{grid-template-columns:1fr 1fr; gap:8px 0; row-gap:32px;}
+    .step-arrow{display:none;}
+  }
+  @media(max-width:560px){
+    .steps-path{grid-template-columns:1fr;}
+  }
+  .step-path-item{
+    position:relative; text-align:center; width:100%; max-width:280px; margin:0 auto;
+    padding:24px 16px; display:flex; flex-direction:column; align-items:center;
+  }
+  .step-path-item .num-badge{
+    width:48px; height:48px; border-radius:50%; background:#E6F3FF; color:#0052CC;
+    display:flex; align-items:center; justify-content:center; margin:0 auto 16px;
+    font-family:'Golos Text',sans-serif; font-size:18px; font-weight:700;
+  }
+  .step-path-item .ic-circle{
+    width:64px; height:64px; margin:0 auto 20px; display:block;
+  }
+  .step-path-item .ic-circle svg{width:64px; height:64px; stroke:#0052CC; color:#0052CC; stroke-width:1.75; overflow:visible; fill:none;}
+  .step-arrow{display:flex; align-items:center; justify-content:center; padding-top:48px;}
+  .step-arrow .dash{
+    width:40px; height:2px;
+    background-image:repeating-linear-gradient(to right, #D0D5DD 0 8px, transparent 8px 12px);
+  }
+  .step-path-item h3{font-size:18px; font-family:'Golos Text'; font-weight:600; letter-spacing:0; color:#0A1A3A; margin-bottom:8px;}
+  .step-path-item p{color:#667085; font-size:14px; line-height:1.5; max-width:200px;}
+  /* faq */
+  .faq-list{max-width:760px; margin:0 auto;}
+  details{
+    border-bottom:1px solid var(--line); padding:20px 0;
+  }
+  details summary{
+    cursor:pointer; font-weight:600; font-size:15.5px; list-style:none;
+    display:flex; justify-content:space-between; align-items:center; gap:20px;
+  }
+  details summary::-webkit-details-marker{display:none;}
+  details summary::after{
+    content:"+"; font-family:'JetBrains Mono',monospace; font-size:20px; color:var(--text-muted); flex-shrink:0;
+    transition:transform .25s ease;
+  }
+  details[open] summary::after{transform:rotate(45deg); color:var(--brand-blue);}
+  details p{color:var(--text-muted); font-size:14.5px; margin-top:12px; padding-right:30px;}
+  /* problem symptoms list */
+  .problem-card{
+    max-width:720px; margin:0 auto;
+    background:var(--bg-surface); border:1px solid var(--line); border-radius:var(--radius-l);
+    padding:36px 40px; box-shadow:0 16px 40px -28px rgba(19,32,67,0.2);
+  }
+  .problem-list{list-style:none; display:flex; flex-direction:column; gap:16px;}
+  .problem-list li{display:flex; gap:12px; align-items:flex-start; font-size:15.5px; color:var(--text-primary); line-height:1.5;}
+  .problem-list li svg{width:18px; height:18px; stroke:var(--accent-red); flex-shrink:0; margin-top:3px;}
+  /* comparison: without option vs with option */
+  .cmp-lite{
+    max-width:720px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:var(--radius-l); overflow:hidden;
+  }
+  @media(max-width:600px){ .cmp-lite{grid-template-columns:1fr;} }
+  .cmp-lite-col{background:var(--bg-surface); padding:28px 26px;}
+  .cmp-lite-col.good{background:linear-gradient(180deg, var(--accent-green-pale), var(--bg-surface) 55%);}
+  .cmp-lite-col h4{font-size:13px; text-transform:uppercase; letter-spacing:.06em; font-family:'JetBrains Mono',monospace; color:var(--text-muted); margin-bottom:18px;}
+  .cmp-lite-col.good h4{color:var(--accent-green);}
+  .cmp-lite-col ul{list-style:none; display:flex; flex-direction:column; gap:13px;}
+  .cmp-lite-col li{display:flex; gap:9px; font-size:14px; align-items:flex-start; line-height:1.4;}
+  .cmp-lite-col li svg{width:15px; height:15px; flex-shrink:0; margin-top:2px;}
+  .cmp-lite-col:not(.good) li svg{stroke:var(--accent-red);}
+  .cmp-lite-col.good li svg{stroke:var(--accent-green);}
+  /* persona grid (кому подходит) */
+  .persona-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media(max-width:760px){ .persona-grid{grid-template-columns:1fr;} }
+  .persona-card{
+    background:var(--bg-surface); border:1px solid var(--line); border-radius:18px;
+    padding:26px; text-align:center;
+    box-shadow:0 16px 40px -28px rgba(19,32,67,0.2);
+  }
+  .persona-card .emoji{
+    width:48px; height:48px; border-radius:50%; background:var(--bg-surface-alt);
+    display:flex; align-items:center; justify-content:center; font-size:22px; margin:0 auto 16px;
+  }
+  .persona-card h3{font-size:16px; font-weight:700; margin-bottom:7px;}
+  .persona-card p{font-size:14px; color:var(--text-muted); line-height:1.5;}
+  /* price calculator */
+  .calc-card{
+    max-width:720px; margin:0 auto;
+    background:var(--bg-surface); border:1px solid var(--line); border-radius:var(--radius-l);
+    padding:36px; box-shadow:0 20px 50px -30px rgba(19,32,67,0.25);
+  }
+  .calc-field{margin-bottom:22px;}
+  .calc-field label{
+    display:block; font-size:12.5px; color:var(--text-muted); margin-bottom:9px;
+    text-transform:uppercase; letter-spacing:.05em; font-family:'JetBrains Mono',monospace;
+  }
+  .calc-input-wrap{position:relative;}
+  .calc-input-wrap input{
+    width:100%; background:var(--bg-surface-alt); border:1px solid var(--line); border-radius:var(--radius-s);
+    padding:14px 44px 14px 16px; color:var(--text-primary); font-size:17px; font-weight:600;
+    font-family:'Golos Text',sans-serif;
+  }
+  .calc-input-wrap input:focus{outline:2px solid var(--brand-blue); outline-offset:1px;}
+  .calc-input-wrap span{
+    position:absolute; right:16px; top:50%; transform:translateY(-50%);
+    color:var(--text-muted); font-size:15px; font-weight:600;
+  }
+  .calc-pkg-row{display:grid; grid-template-columns:repeat(4,1fr); gap:8px;}
+  .calc-pkg{
+    text-align:center; padding:12px 4px; border-radius:var(--radius-s); border:1px solid var(--line);
+    background:var(--bg-surface-alt); cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600;
+    color:var(--text-primary); transition:border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .calc-pkg.active{border-color:var(--brand-blue); background:var(--brand-blue-pale); color:var(--brand-blue-dark);}
+  .calc-result{
+    margin-top:28px; padding-top:26px; border-top:1px solid var(--line);
+    display:grid; grid-template-columns:1fr 1fr; gap:20px;
+  }
+  @media(max-width:480px){ .calc-result{grid-template-columns:1fr;} }
+  .calc-result .stat-label{font-size:12.5px; color:var(--text-muted); margin-bottom:6px;}
+  .calc-result .stat-value{font-family:'JetBrains Mono',monospace; font-size:26px; font-weight:600; color:var(--text-primary);}
+  .calc-result .stat-value.accent{color:var(--brand-blue);}
+  .calc-card .btn{margin-top:26px;}
+  /* pricing grid */
+  .price-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:24px;}
+  @media(max-width:860px){ .price-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:480px){ .price-grid{grid-template-columns:1fr;} }
+  .price-card{
+    background:var(--bg-surface); border:1px solid var(--line); border-radius:18px;
+    padding:28px; text-align:left;
+    box-shadow:0 16px 40px -28px rgba(19,32,67,0.2);
+  }
+  .price-card .pct{font-family:'JetBrains Mono',monospace; font-size:34px; font-weight:600; color:var(--brand-blue); margin-bottom:6px;}
+  .price-card .limit{font-size:14px; color:var(--text-muted); margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--line);}
+  .price-card .price{font-size:16px; font-weight:700; color:var(--text-primary);}
+  .price-note{font-size:13.5px; color:var(--text-muted); text-align:center; display:flex; align-items:center; justify-content:center; gap:8px;}
+  .price-note svg{width:16px; height:16px; stroke:var(--brand-blue); flex-shrink:0;}
+  /* testimonials */
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:1080px; margin:0 auto;}
+  @media(max-width:860px){ .testi-grid{grid-template-columns:1fr; max-width:520px;} }
+  .testi-card{
+    background:var(--bg-surface); border:1px solid var(--line); border-radius:18px;
+    padding:28px; box-shadow:0 16px 40px -28px rgba(19,32,67,0.2);
+  }
+  .testi-stars{display:flex; gap:3px; margin-bottom:14px;}
+  .testi-stars svg{width:15px; height:15px; fill:var(--accent-gold); stroke:none;}
+  .testi-card p.quote{font-size:14.5px; color:var(--text-primary); line-height:1.6; margin-bottom:18px;}
+  .testi-card .quote-head{font-size:17px; font-weight:700; color:var(--brand-blue); margin-bottom:10px;}
+  .testi-person{display:flex; align-items:center; gap:12px;}
+  .testi-avatar{
+    width:38px; height:38px; border-radius:50%; background:var(--brand-blue-pale); color:var(--brand-blue);
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; flex-shrink:0;
+  }
+  .testi-person .name{font-size:14px; font-weight:600; color:var(--text-primary);}
+  .testi-person .role{font-size:12.5px; color:var(--text-muted);}
+  /* final cta */
+  .final{
+    text-align:center; padding:84px 0;
+    background:radial-gradient(ellipse 700px 400px at 50% 0%, rgba(26,70,184,0.08), transparent 60%);
+  }
+  .final h2{font-size:clamp(27px,4.2vw,42px); max-width:640px; margin:0 auto 18px; color:var(--text-primary);}
+  .final p{color:var(--text-muted); max-width:480px; margin:0 auto 34px; font-size:16px;}
+  .final p.final__note{color:var(--text-muted); font-size:13px; margin:18px auto 0; max-width:none;}
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(19,32,67,0.45); backdrop-filter:blur(4px);
+    display:none; align-items:center; justify-content:center; z-index:100; padding:20px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal{
+    background:var(--bg-surface); border:1px solid var(--line); border-radius:var(--radius-l);
+    max-width:460px; width:100%; padding:32px; max-height:90vh; overflow-y:auto;
+    position:relative;
+    box-shadow:0 30px 80px -20px rgba(19,32,67,0.35);
+  }
+  .modal .close{
+    position:absolute; top:18px; right:18px; width:32px; height:32px; border-radius:50%;
+    background:var(--bg-surface-alt); border:1px solid var(--line); color:var(--text-muted);
+    cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center;
+  }
+  .modal h3{font-size:22px; margin-bottom:6px;}
+  .modal p.msub{color:var(--text-muted); font-size:14px; margin-bottom:24px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:12.5px; color:var(--text-muted); margin-bottom:7px; text-transform:uppercase; letter-spacing:.05em; font-family:'JetBrains Mono',monospace;}
+  .field input, .field textarea, .field select{
+    width:100%; background:var(--bg-surface-alt); border:1px solid var(--line); border-radius:var(--radius-s);
+    padding:12px 14px; color:var(--text-primary); font-size:14.5px; font-family:'Golos Text',sans-serif;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{outline:2px solid var(--brand-blue); outline-offset:1px;}
+  .field textarea{resize:vertical; min-height:70px;}
+  .pkg-row{display:grid; grid-template-columns:repeat(4,1fr); gap:8px;}
+  .pkg-opt{
+    text-align:center; padding:10px 4px; border-radius:var(--radius-s); border:1px solid var(--line);
+    background:var(--bg-surface-alt); cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:13px;
+  }
+  .pkg-opt input{position:absolute; opacity:0; width:0; height:0;}
+  .pkg-opt.checked{border-color:var(--brand-blue); background:var(--brand-blue-pale); color:var(--brand-blue-dark);}
+  .thankyou{display:none; text-align:center; padding:20px 0;}
+  .thankyou.show{display:block;}
+  .thankyou .ic{
+    width:56px; height:56px; border-radius:50%; background:var(--accent-green-pale); margin:0 auto 20px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .thankyou .ic svg{width:28px;height:28px; stroke:var(--accent-green);}
+  .thankyou h3{margin-bottom:10px;}
+  .thankyou p{color:var(--text-muted); font-size:14.5px;}
+  .form-body.hide{display:none;}
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+</style> 
+</head>
+<body>
+<header class="nav">
+<div class="wrap nav__row">
+<div class="nav__left">
+<div class="nav__brand">
+<div class="nav__logo-icon">
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L20 6 V12 C20 17 16.5 20.5 12 21.5 C7.5 20.5 4 17 4 12 V6 Z"></path></svg>
+</div>
+<div class="nav__logo">ДОП. ОБОРУДОВАНИЕ<br/>ПОД ЗАЩИТОЙ</div>
+</div>
+<nav class="nav__links">
+<a href="#personas">Кому подходит</a>
+<a href="#how">Как это работает</a>
+<a href="#advantages">Преимущества</a>
+<a href="#pricing">Стоимость</a>
+<a href="#testimonials">Отзывы</a>
+<a href="#faq">Вопросы</a>
+</nav>
+</div>
+<button class="btn btn-primary nav__cta" onclick="openModal()">Рассчитать стоимость</button>
+</div>
+</header>
+<section class="hero">
+<div class="wrap hero__grid">
+<div>
+<h1>Защитите тюнинг и дополнительное оборудование, даже если не входит в заводскую комплектацию. А если повредили — <em>выплатим до 20% от стоимости авто</em></h1>
+<p class="hero__subtitle-sm">Опция к КАСКО: страхуем всё дополнительное оборудование одним лимитом. Просто выберите необходимый пакет от 5% до 20% от стоимости автомобиля.</p>
+<div class="hero__ctas">
+<button class="btn btn-primary" onclick="openModal()">Рассчитать стоимость</button>
+</div>
+<p class="hero__stat">Уже 1 200+ клиентов КАСКО подключили опцию</p>
+<div class="hero__trust">
+<span><div class="ic"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2.5 L20 6 V12 C20 17 16.5 20.5 12 21.5 C7.5 20.5 4 17 4 12 V6 Z"></path><path d="M8.5 12 L11 14.5 L16 9.5"></path></svg></div>Выплата по первому страховому случаю</span>
+<span><div class="ic"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg></div>Страховой лимит до 20% от стоимости автомобиля</span>
+</div>
+</div>
+
+<div class="hero__visual">
+  <div class="car-wrap">
+    <svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="320" cy="252" rx="272" ry="12" fill="#132043" opacity="0.06"/>
+      <path d="M 60 202 C 57 184, 66 166, 92 160 C 100 158, 108 157, 116 156 C 126 122, 172 86, 232 76 C 280 69, 350 68, 396 78 C 432 86, 460 104, 476 128 L 552 140 C 574 144, 588 158, 588 180 L 588 196 C 588 205, 580 210, 568 210 L 80 210 C 68 210, 61 208, 60 202 Z" fill="#DCE4F2"/>
+      <path d="M 133 154 C 145 124, 186 96, 234 88 C 278 82, 336 82, 378 94 C 400 100, 418 112, 430 128 L 149 128 Z" fill="#F3F6FC"/>
+      <line x1="240" y1="90" x2="246" y2="128" stroke="#B9C6E0" stroke-width="4"/>
+      <line x1="338" y1="86" x2="342" y2="128" stroke="#B9C6E0" stroke-width="4"/>
+      <line x1="246" y1="128" x2="246" y2="208" stroke="#B9C6E0" stroke-width="2" opacity="0.6"/>
+      <line x1="342" y1="128" x2="342" y2="208" stroke="#B9C6E0" stroke-width="2" opacity="0.4"/>
+      <rect x="72" y="199" width="504" height="7" fill="#B9C6E0" opacity="0.5"/>
+      <g><circle cx="156" cy="210" r="37" fill="#132043"/><circle cx="156" cy="210" r="21" fill="#8798B5"/></g>
+      <g><circle cx="474" cy="210" r="37" fill="#132043"/><circle cx="474" cy="210" r="21" fill="#8798B5"/></g>
+      <path d="M 552 140 C 564 142 574 145 582 152 L 574 162 L 556 154 Z" fill="#D64545"/>
+      <path d="M 92 160 C 100 158 108 157 116 156 L 118 168 L 98 172 Z" fill="#F0C464"/>
+    </svg>
+  </div>
+  <div class="spec-badge" style="top:2%; left:0%;">
+    <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="12" r="2.5"/><circle cx="16" cy="8" r="1"/></svg></div>
+    Аудиосистема
+  </div>
+  <div class="spec-badge" style="top:-2%; left:38%;">
+    <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="14" height="11" rx="2"/><path d="M17 10l4-2v9l-4-2z"/></svg></div>
+    Видеорегистратор
+  </div>
+  <div class="spec-badge" style="top:6%; right:0%;">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5V16h8v-2.5A6 6 0 0 0 12 3z"/></svg></div>
+    Свет
+  </div>
+  <div class="spec-badge" style="top:44%; left:-4%;">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2.5 L20 6 V12 C20 17 16.5 20.5 12 21.5 C7.5 20.5 4 17 4 12 V6 Z"/><path d="M8.5 12 L11 14.5 L16 9.5"/></svg></div>
+    Сигнализация
+  </div>
+  <div class="spec-badge" style="top:40%; right:-2%;">
+    <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg></div>
+    Диски
+  </div>
+  <div class="spec-badge" style="bottom:4%; left:8%;">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 18v-5a2 2 0 0 1 2-2h1l1-4h8l1 4h1a2 2 0 0 1 2 2v5"/><path d="M4 18h16M6 18v2M18 18v2"/></svg></div>
+    Салон
+  </div>
+</div>
+</div>
+</section>
+<section class="block" id="problem">
+<div class="wrap">
+<div class="block__intro">
+<h2 class="reveal">Стандартный КАСКО не видит того, что установили вы сами</h2>
+</div>
+<div class="problem-card reveal">
+<ul class="problem-list">
+<li><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><line x1="12" x2="12" y1="8" y2="12"></line><circle cx="12" cy="16" r="0.6" fill="currentColor" stroke="none"></circle></svg>Защитная плёнка, обвес, аудиосистема, датчики парковки — не входят в заводскую комплектацию</li>
+<li><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><line x1="12" x2="12" y1="8" y2="12"></line><circle cx="12" cy="16" r="0.6" fill="currentColor" stroke="none"></circle></svg>При ДТП страховая компания платит только за штатные детали</li>
+<li><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><line x1="12" x2="12" y1="8" y2="12"></line><circle cx="12" cy="16" r="0.6" fill="currentColor" stroke="none"></circle></svg>Доказывать факт установки и стоимость оборудования — самостоятельно</li>
+<li><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><line x1="12" x2="12" y1="8" y2="12"></line><circle cx="12" cy="16" r="0.6" fill="currentColor" stroke="none"></circle></svg>Ремонт нештатного оборудования — из своего кармана</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="block" id="personas">
+<div class="wrap">
+<div class="block__intro">
+<h2 class="reveal">Кому подходит опция</h2>
+</div>
+<div class="persona-grid">
+<div class="persona-card reveal">
+<div class="emoji">🏎️</div>
+<h3>Тюнинг-энтузиаст</h3>
+<p>Установили обвес, диски, свет, аудио — защитите вложения</p>
+</div>
+<div class="persona-card reveal">
+<div class="emoji">💼</div>
+<h3>Владелец авто бизнес-класса</h3>
+<p>Цените статус и свое время</p>
+</div>
+<div class="persona-card reveal">
+<div class="emoji">🏕️</div>
+<h3>Путешественник</h3>
+<p>Используете фаркоп, багажник, защиту картера — часто выезжаете за город</p>
+</div>
+</div>
+</div>
+</section>
+<section class="block" id="how">
+<div class="wrap">
+<div class="block__intro">
+<h2 class="reveal">Как это работает</h2>
+</div>
+<div class="steps-path">
+<div class="step-path-item reveal">
+<div class="num-badge">1</div>
+<div class="ic-circle">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" viewBox="0 0 24 24">
+<rect x="5" y="4" width="13" height="17" rx="2"></rect>
+<rect x="9" y="2.2" width="5.5" height="2.8" rx="1"></rect>
+<line x1="7.8" y1="10" x2="13" y2="10"></line>
+<line x1="7.8" y1="13.3" x2="13" y2="13.3"></line>
+<line x1="7.8" y1="16.6" x2="11" y2="16.6"></line>
+<path d="M15 18 L20 13 L21.5 14.5 L16.5 19.5 L14.5 20 Z" fill="currentColor" stroke="none"></path>
+</svg>
+</div>
+<h3>Оформите опцию к КАСКО</h3>
+<p>Без осмотра и перечисления оборудования</p>
+</div>
+<div class="step-arrow"><div class="dash"></div></div>
+<div class="step-path-item reveal">
+<div class="num-badge">2</div>
+<div class="ic-circle">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" viewBox="0 0 24 24">
+<path d="M12 2.5 L20 6 V12 C20 17 16.5 20.5 12 21.5 C7.5 20.5 4 17 4 12 V6 Z"></path>
+<path d="M8.5 12 L11 14.5 L16 9.5"></path>
+</svg>
+</div>
+<h3>Пользуйтесь как обычно</h3>
+<p>Оборудование защищено с первого дня</p>
+</div>
+<div class="step-arrow"><div class="dash"></div></div>
+<div class="step-path-item reveal">
+<div class="num-badge">3</div>
+<div class="ic-circle">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" viewBox="0 0 24 24">
+<path d="M4 17.5 L5.5 12.5 A2 2 0 0 1 7.4 11 H15 A2 2 0 0 1 16.9 12.2 L18.5 16"></path>
+<path d="M3.5 17.5 H19.5"></path>
+<circle cx="7.5" cy="17.5" r="1.6"></circle>
+<circle cx="16" cy="17.5" r="1.6"></circle>
+<path d="M12 1.5 L13 4 L12 6.5 L11 4 Z" fill="var(--accent-gold)" stroke="var(--accent-gold)"></path>
+<path d="M9 3.2 L11.5 4.2 L14 3.2 L11.5 2.2 Z" fill="var(--accent-gold)" stroke="var(--accent-gold)"></path>
+</svg>
+</div>
+<h3>Произошёл страховой случай</h3>
+<p>Обращайтесь в страховую компанию</p>
+</div>
+<div class="step-arrow"><div class="dash"></div></div>
+<div class="step-path-item reveal">
+<div class="num-badge">4</div>
+<div class="ic-circle">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" viewBox="0 0 24 24">
+<path d="M3 10l9-6 9 6"></path>
+<path d="M5 10v8M9 10v8M15 10v8M19 10v8"></path>
+<path d="M3 21h18"></path>
+</svg>
+</div>
+<h3>Получите выплату</h3>
+<p>Лимит до 20% от стоимости автомобиля по первому страховому случаю</p>
+</div>
+</div>
+</div>
+</section>
+<section class="block" id="advantages">
+<div class="wrap">
+<div class="block__intro">
+<h2 class="reveal">Преимущества опции</h2>
+</div>
+<div class="adv-grid">
+<div class="adv-card reveal">
+<div class="ic-circle">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" viewBox="0 0 24 24">
+<path d="M12 2.5 L20 6 V12 C20 17 16.5 20.5 12 21.5 C7.5 20.5 4 17 4 12 V6 Z"></path>
+<path d="M8.5 12 L11 14.5 L16 9.5"></path>
+</svg>
+</div>
+<h3>Выплата по первому случаю</h3>
+<p>Получите деньги сразу — без ожидания</p>
+</div>
+<div class="adv-card reveal">
+<div class="ic-circle">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" viewBox="0 0 24 24">
+<circle cx="7" cy="7" r="3.2"></circle>
+<circle cx="17" cy="17" r="3.2"></circle>
+<line x1="18" x2="6" y1="6" y2="18"></line>
+</svg>
+</div>
+<h3>До 20% от стоимости авто</h3>
+<p>Фиксированная выплата по полису</p>
+</div>
+<div class="adv-card reveal">
+<div class="ic-circle">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" viewBox="0 0 24 24">
+<rect height="1.6" rx="0.8" width="3.4" x="10.3" y="1"></rect>
+<circle cx="12" cy="13" r="8.5"></circle>
+<line x1="12" x2="12" y1="8.5" y2="13"></line>
+<line x1="12" x2="15.5" y1="13" y2="14.5"></line>
+</svg>
+</div>
+<h3>Экономия времени</h3>
+<p>Быстрое оформление и урегулирование</p>
+</div>
+</div>
+</div>
+</section>
+<section class="block" id="comparison">
+<div class="wrap">
+<div class="block__intro">
+<h2 class="reveal">Разница на практике</h2>
+</div>
+<div class="cmp-lite reveal">
+<div class="cmp-lite-col">
+<h4>Без опции</h4>
+<ul>
+<li><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15 9l-6 6M9 9l6 6"></path></svg>Нештатное оборудование не покрыто</li>
+<li><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15 9l-6 6M9 9l6 6"></path></svg>Ремонт диска, обвеса, аудио — за свой счёт</li>
+<li><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15 9l-6 6M9 9l6 6"></path></svg>Факт установки нужно доказывать самому</li>
+</ul>
+</div>
+<div class="cmp-lite-col good">
+<h4>С опцией</h4>
+<ul>
+<li><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>Дополнительное оборудование в лимите полиса</li>
+<li><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>Выплата до 20% от стоимости авто</li>
+<li><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>Без документов на оборудование при оформлении</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="block" id="pricing">
+<div class="wrap">
+<div class="block__intro">
+<h2 class="reveal">Стоимость опции — выберите свой пакет</h2>
+<p class="sub reveal">5%, 10%, 15% или 20% — это страховой лимит выплаты от стоимости автомобиля</p>
+</div>
+<div class="price-grid">
+<div class="price-card reveal">
+<div class="pct">5%</div>
+<div class="limit">Лимит выплаты — до 175 000 ₽</div>
+<div class="price">от 10 500 ₽/год</div>
+</div>
+<div class="price-card reveal">
+<div class="pct">10%</div>
+<div class="limit">Лимит выплаты — до 350 000 ₽</div>
+<div class="price">от 17 500 ₽/год</div>
+</div>
+<div class="price-card reveal">
+<div class="pct">15%</div>
+<div class="limit">Лимит выплаты — до 525 000 ₽</div>
+<div class="price">от 35 000 ₽/год</div>
+</div>
+<div class="price-card reveal">
+<div class="pct">20%</div>
+<div class="limit">Лимит выплаты — до 700 000 ₽</div>
+<div class="price">от 52 500 ₽/год</div>
+</div>
+</div>
+<p class="price-note reveal"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><line x1="12" x2="12" y1="11" y2="16"></line><circle cx="12" cy="8" fill="currentColor" r="0.6" stroke="none"></circle></svg>Точную стоимость опции можно узнать при оформлении полиса КАСКО</p>
+</div>
+</section>
+<section class="block" id="calculator">
+<div class="wrap">
+<div class="block__intro">
+<h2 class="reveal">Рассчитайте стоимость для вашего авто</h2>
+<p class="sub reveal">Укажите стоимость автомобиля и выберите пакет — калькулятор покажет лимит выплаты и цену опции</p>
+</div>
+<div class="calc-card reveal">
+<div class="calc-field">
+<label>Стоимость автомобиля</label>
+<div class="calc-input-wrap">
+<input type="text" inputmode="numeric" id="calcCarValue" value="3 500 000">
+<span>₽</span>
+</div>
+</div>
+<div class="calc-field">
+<label>Пакет покрытия</label>
+<div class="calc-pkg-row" id="calcPkgRow">
+<div class="calc-pkg" data-pkg="5">5%</div>
+<div class="calc-pkg active" data-pkg="10">10%</div>
+<div class="calc-pkg" data-pkg="15">15%</div>
+<div class="calc-pkg" data-pkg="20">20%</div>
+</div>
+</div>
+<div class="calc-result">
+<div>
+<div class="stat-label">Лимит выплаты</div>
+<div class="stat-value" id="calcLimit">350 000 ₽</div>
+</div>
+<div>
+<div class="stat-label">Стоимость опции</div>
+<div class="stat-value accent" id="calcPrice">от 17 500 ₽/год</div>
+</div>
+</div>
+<button class="btn btn-primary btn-block" onclick="openModal()">Рассчитать стоимость</button>
+</div>
+</div>
+</section>
+<section class="block" id="testimonials">
+<div class="wrap">
+<div class="block__intro">
+<h2 class="reveal">Отзывы клиентов</h2>
+</div>
+<div class="testi-grid">
+<div class="testi-card reveal">
+<div class="testi-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+</div>
+<div class="quote-head">Выплатили без вопросов</div>
+<p class="quote">«После ДТП мне выплатили за повреждённый обвес без лишних вопросов. Очень удобно, что не нужно было собирать чеки.»</p>
+<div class="testi-person">
+<div class="testi-avatar">ЕК</div>
+<div>
+<div class="name">Екатерина</div>
+<div class="role">Владелица BMW X5</div>
+</div>
+</div>
+</div>
+<div class="testi-card reveal">
+<div class="testi-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+</div>
+<div class="quote-head">Оформил за 5 минут</div>
+<p class="quote">«Установил на новую машину защиту картера и фаркоп. Решил добавить опцию. Оформил за 5 минут через приложение. Спокойствие стоит этих денег.»</p>
+<div class="testi-person">
+<div class="testi-avatar">АЛ</div>
+<div>
+<div class="name">Алексей</div>
+<div class="role">Владелец Toyota Land Cruiser</div>
+</div>
+</div>
+</div>
+<div class="testi-card reveal">
+<div class="testi-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2.5 L14.9 8.6 L21.6 9.4 L16.8 14 L18 20.6 L12 17.4 L6 20.6 L7.2 14 L2.4 9.4 L9.1 8.6 Z"></path></svg>
+</div>
+<div class="quote-head">Окупилось с первого раза</div>
+<p class="quote">«За опцию плачу около 12 000 ₽ в год. Когда во дворе поцарапали диски и бампер, одна выплата — 90 000 ₽ — перекрыла стоимость опции на годы вперёд.»</p>
+<div class="testi-person">
+<div class="testi-avatar">ДМ</div>
+<div>
+<div class="name">Дмитрий</div>
+<div class="role">Владелец Kia K5</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="block" id="faq" style="border-bottom:none;">
+<div class="wrap">
+<div class="block__intro">
+<h2 class="reveal">Частые вопросы об опции</h2>
+</div>
+<div class="faq-list reveal">
+<details>
+<summary>Нужно ли перечислять всё установленное доп. оборудование?</summary>
+<p>Нет. Опция работает по фиксированному лимиту без ограничения по перечню комплектации — не нужно подтверждать каждую позицию отдельно.</p>
+</details>
+<details>
+<summary>Сколько составляет лимит покрытия?</summary>
+<p>Лимит выбирается пакетом — 5%, 10%, 15% или 20% от страховой стоимости автомобиля, в зависимости от объёма установленного оборудования.</p>
+</details>
+<details>
+<summary>Когда можно подключить опцию?</summary>
+<p>На этапе заключения полиса «Полное КАСКО» или в течение периода его действия.</p>
+</details>
+<details>
+<summary>Как происходит выплата?</summary>
+<p>Возмещение производится в рамках установленного лимита по первому страховому случаю.</p>
+</details>
+<details>
+<summary>Почему выплата только при повреждении сопряжённых деталей?</summary>
+<p>Это стандартная практика, позволяющая избежать мошенничества и сохранить доступную цену опции. Если ваше оборудование повреждено отдельно от автомобиля (например, царапина на диске без ДТП), это не является страховым случаем. Мы защищаем вас от крупных финансовых потерь в результате аварий.</p>
+</details>
+<details>
+<summary>А если я никогда не попаду в ДТП — деньги потрачены зря?</summary>
+<p>Опция работает так же, как и сам КАСКО: вы платите за спокойствие и защиту от риска, а не за гарантированное событие. При этом стоимость нештатного оборудования часто сопоставима со стоимостью самой опции за несколько лет — а один страховой случай окупает её сразу.</p>
+</details>
+<details>
+<summary>Что именно не покрывается?</summary>
+<p>Опция не покрывает повреждения оборудования вне страхового случая (например, царапину от неаккуратной парковки без ДТП), естественный износ, а также ущерб, не подтверждённый при разборе страхового случая. Полный перечень исключений — в условиях полиса.</p>
+</details>
+</div>
+</div>
+</section>
+<section class="final">
+<div class="wrap">
+<h2>Узнайте свою стоимость за 2 минуты</h2>
+<p>Укажите марку авто — мы посчитаем лимит выплаты и стоимость опции под ваш случай</p>
+<button class="btn btn-primary" onclick="openModal()">Рассчитать стоимость</button>
+<p class="final__note">Без предоплаты · Ответим в течение дня</p>
+</div>
+</section>
+<div class="modal-overlay" id="modalOverlay">
+<div class="modal">
+<button class="close" onclick="closeModal()">✕</button>
+<div class="form-body" id="formBody">
+<h3>Оформить заявку</h3>
+<p class="msub">Оставьте контакты — мы посчитаем стоимость опции под ваш автомобиль</p>
+<form id="leadForm">
+<div class="field">
+<label>Имя</label>
+<input placeholder="Как к вам обращаться" required="" type="text"/>
+</div>
+<div class="field">
+<label>Телефон или Telegram</label>
+<input placeholder="+7 999 000-00-00 или @username" required="" type="text"/>
+</div>
+<div class="field">
+<label>Марка и модель авто</label>
+<input placeholder="Например, BMW X5" type="text"/>
+</div>
+<div class="field">
+<label>Какое доп. оборудование установлено</label>
+<textarea placeholder="Диски, обвес, аудио, фаркоп..."></textarea>
+</div>
+<div class="field">
+<label>Желаемый пакет покрытия</label>
+<div class="pkg-row" id="pkgRow">
+<label class="pkg-opt"><input name="pkg" type="radio" value="5"/>5%</label>
+<label class="pkg-opt"><input name="pkg" type="radio" value="10"/>10%</label>
+<label class="pkg-opt"><input name="pkg" type="radio" value="15"/>15%</label>
+<label class="pkg-opt"><input name="pkg" type="radio" value="20"/>20%</label>
+</div>
+</div>
+<div class="field">
+<label>Что для вас самое важное в этой опции?</label>
+<textarea placeholder="Необязательно — ваш ответ поможет нам сделать продукт лучше"></textarea>
+</div>
+<button class="btn btn-primary btn-block" type="submit">Отправить заявку</button>
+</form>
+</div>
+<div class="thankyou" id="thankYou">
+<div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg></div>
+<h3>Заявка принята</h3>
+<p>Спасибо! Мы свяжемся с вами в ближайшее время, чтобы уточнить детали и оформить опцию</p>
+</div>
+</div>
+</div>
+<script>
+  // Modal
+  function openModal(){
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modalOverlay').addEventListener('click', (e)=>{
+    if(e.target.id === 'modalOverlay') closeModal();
+  });
+
+  // Package pill selection styling
+  document.querySelectorAll('.pkg-opt').forEach(opt=>{
+    opt.addEventListener('click', ()=>{
+      document.querySelectorAll('.pkg-opt').forEach(o=>o.classList.remove('checked'));
+      opt.classList.add('checked');
+    });
+  });
+
+  // Price calculator
+  (function(){
+    const carValueInput = document.getElementById('calcCarValue');
+    const pkgRow = document.getElementById('calcPkgRow');
+    const limitOut = document.getElementById('calcLimit');
+    const priceOut = document.getElementById('calcPrice');
+    if(!carValueInput || !pkgRow) return;
+
+    // limit = carValue * package %; price = carValue * tariff rate for that package
+    const tariffRate = {5:0.003, 10:0.005, 15:0.01, 20:0.015};
+    let activePkg = 10;
+
+    function parseValue(str){
+      const digits = str.replace(/[^\d]/g, '');
+      return digits ? parseInt(digits, 10) : 0;
+    }
+    function formatNumber(n){
+      return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+    function recalc(){
+      const carValue = Math.max(parseValue(carValueInput.value), 0);
+      const limit = carValue * (activePkg/100);
+      const price = carValue * tariffRate[activePkg];
+      limitOut.textContent = formatNumber(limit) + ' ₽';
+      priceOut.textContent = 'от ' + formatNumber(price) + ' ₽/год';
+    }
+
+    carValueInput.addEventListener('input', ()=>{
+      const cursorFromEnd = carValueInput.value.length - carValueInput.selectionStart;
+      const digits = parseValue(carValueInput.value);
+      carValueInput.value = digits ? formatNumber(digits) : '';
+      const pos = Math.max(carValueInput.value.length - cursorFromEnd, 0);
+      carValueInput.setSelectionRange(pos, pos);
+      recalc();
+    });
+
+    pkgRow.querySelectorAll('.calc-pkg').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        pkgRow.querySelectorAll('.calc-pkg').forEach(o=>o.classList.remove('active'));
+        el.classList.add('active');
+        activePkg = parseInt(el.dataset.pkg, 10);
+        recalc();
+      });
+    });
+
+    recalc();
+  })();
+
+  // Form submit -> demand-test "thank you" (no backend wired yet)
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    // TODO: replace with a real endpoint (e.g. Telegram bot webhook) built in Cursor.
+    document.getElementById('formBody').classList.add('hide');
+    document.getElementById('thankYou').classList.add('show');
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
