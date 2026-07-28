@@ -876,22 +876,22 @@
 <div class="form-body" id="formBody">
 <h3>Оформить заявку</h3>
 <p class="msub">Оставьте контакты — мы посчитаем стоимость опции под ваш автомобиль</p>
-<form id="leadForm">
+<form id="leadForm" action="https://formspree.io/f/xlgqzbyk" method="POST">
 <div class="field">
 <label>Имя</label>
-<input placeholder="Как к вам обращаться" required="" type="text"/>
+<input name="name" placeholder="Как к вам обращаться" required type="text"/>
 </div>
 <div class="field">
 <label>Телефон или Telegram</label>
-<input placeholder="+7 999 000-00-00 или @username" required="" type="text"/>
+<input name="contact" placeholder="+7 999 000-00-00 или @username" required="" type="text"/>
 </div>
 <div class="field">
 <label>Марка и модель авто</label>
-<input placeholder="Например, BMW X5" type="text"/>
+<input name="car" placeholder="Например, BMW X5" type="text"/>
 </div>
 <div class="field">
 <label>Какое доп. оборудование установлено</label>
-<textarea placeholder="Диски, обвес, аудио, фаркоп..."></textarea>
+<textarea name="equipment" placeholder="Диски, обвес, аудио, фаркоп..."></textarea>
 </div>
 <div class="field">
 <label>Желаемый пакет покрытия</label>
@@ -904,7 +904,7 @@
 </div>
 <div class="field">
 <label>Что для вас самое важное в этой опции?</label>
-<textarea placeholder="Необязательно — ваш ответ поможет нам сделать продукт лучше"></textarea>
+<textarea name="important" placeholder="Необязательно — ваш ответ поможет нам сделать продукт лучше"></textarea>
 </div>
 <button class="btn btn-primary btn-block" type="submit">Отправить заявку</button>
 </form>
