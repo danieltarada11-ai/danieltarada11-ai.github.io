@@ -985,15 +985,27 @@
 
     recalc();
   })();
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-  // Form submit -> demand-test "thank you" (no backend wired yet)
-  document.getElementById('leadForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    // TODO: replace with a real endpoint (e.g. Telegram bot webhook) built in Cursor.
-    document.getElementById('formBody').classList.add('hide');
-    document.getElementById('thankYou').classList.add('show');
+  const form = e.target;
+
+  const response = await fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: {
+      "Accept": "application/json"
+    }
   });
 
+  if (response.ok) {
+    document.getElementById('formBody').classList.add('hide');
+    document.getElementById('thankYou').classList.add('show');
+    form.reset();
+  } else {
+    alert("Ошибка при отправке заявки. Попробуйте еще раз.");
+  }
+});
   // Reveal on scroll
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
