@@ -275,21 +275,6 @@
   .problem-list{list-style:none; display:flex; flex-direction:column; gap:16px;}
   .problem-list li{display:flex; gap:12px; align-items:flex-start; font-size:15.5px; color:var(--text-primary); line-height:1.5;}
   .problem-list li svg{width:18px; height:18px; stroke:var(--accent-red); flex-shrink:0; margin-top:3px;}
-  /* comparison: without option vs with option */
-  .cmp-lite{
-    max-width:720px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:1px;
-    background:var(--line); border:1px solid var(--line); border-radius:var(--radius-l); overflow:hidden;
-  }
-  @media(max-width:600px){ .cmp-lite{grid-template-columns:1fr;} }
-  .cmp-lite-col{background:var(--bg-surface); padding:28px 26px;}
-  .cmp-lite-col.good{background:linear-gradient(180deg, var(--accent-green-pale), var(--bg-surface) 55%);}
-  .cmp-lite-col h4{font-size:13px; text-transform:uppercase; letter-spacing:.06em; font-family:'JetBrains Mono',monospace; color:var(--text-muted); margin-bottom:18px;}
-  .cmp-lite-col.good h4{color:var(--accent-green);}
-  .cmp-lite-col ul{list-style:none; display:flex; flex-direction:column; gap:13px;}
-  .cmp-lite-col li{display:flex; gap:9px; font-size:14px; align-items:flex-start; line-height:1.4;}
-  .cmp-lite-col li svg{width:15px; height:15px; flex-shrink:0; margin-top:2px;}
-  .cmp-lite-col:not(.good) li svg{stroke:var(--accent-red);}
-  .cmp-lite-col.good li svg{stroke:var(--accent-green);}
   .calc-card{
     max-width:720px;
     margin:0 auto;
