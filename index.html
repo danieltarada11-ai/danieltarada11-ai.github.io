@@ -113,9 +113,9 @@
     border-bottom:1px solid var(--line);
   }
   .nav__row{
-    display:grid;
-    grid-template-columns:240px 1fr 240px;
+    display:flex;
     align-items:center;
+    gap:40px;
     padding:14px 24px;
 }
   .nav__left{
@@ -141,10 +141,11 @@
   @media(max-width:420px){ .nav__logo{display:none;} }
 .nav__links{
     display:flex;
-    justify-content:center;
     gap:60px;
     font-size:13.5px;
     color:var(--text-muted);
+    margin-left:auto;
+    margin-right:auto;
 }
     .nav__links a:hover{color:var(--brand-blue);}
   .nav__cta{display:none; margin-left:auto; flex-shrink:0;}
