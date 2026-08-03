@@ -113,12 +113,16 @@
     border-bottom:1px solid var(--line);
   }
   .nav__row{
-    display:flex;
+    display:grid;
+    grid-template-columns:220px 1fr 220px;
     align-items:center;
-    justify-content:center;
-    gap:60px;
     padding:14px 24px;
-  }
+}
+.nav__links{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+}
   .nav__left{display:flex; align-items:center; gap:26px; flex-shrink:0;}
   .nav__brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
   .nav__logo-icon{
