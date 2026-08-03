@@ -413,6 +413,91 @@
   @media(prefers-reduced-motion:reduce){
     .reveal{opacity:1; transform:none; transition:none;}
   }
+    .contact-section{
+    background:#ff6b2d;
+    border-radius:32px;
+    margin:80px auto;
+    padding:70px;
+}
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 500px;
+    gap:70px;
+    align-items:center;
+}
+.contact-info h2{
+    color:#fff;
+    font-size:46px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+.contact-info p{
+    color:#fff;
+    font-size:22px;
+    line-height:1.6;
+    max-width:600px;
+}
+.contact-card{
+    background:#fff;
+    border-radius:28px;
+    padding:35px;
+}
+.contact-card form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+.contact-card label{
+    font-weight:600;
+    font-size:14px;
+}
+.contact-card input[type=text],
+.contact-card input[type=tel],
+.contact-card input[type=email]{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:16px;
+    background:#f3f3f3;
+    font-size:16px;
+    box-sizing:border-box;
+}
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
+}
+.contact-card button{
+    margin-top:15px;
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:16px;
+    background:#ff6b2d;
+    color:#fff;
+    font-size:20px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+.contact-card button:hover{
+    background:#f15a18;
+}
+@media(max-width:900px){
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+    .contact-section{
+        padding:35px 20px;
+    }
+    .contact-info h2{
+        font-size:34px;
+    }
+    .contact-info p{
+        font-size:18px;
+    }
+}
 </style> 
 </head>
 <body>
@@ -813,5 +898,45 @@
   }, {threshold:0.15});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
+<section class="contact-section" id="contact">
+    <div class="wrap contact-grid">
+
+        <div class="contact-info">
+            <h2>Защитите дополнительное оборудование автомобиля</h2>
+
+            <p>
+                Оставьте заявку, и мы свяжемся с вами, ответим на вопросы
+                и расскажем, как оформить страхование дополнительного оборудования.
+            </p>
+        </div>
+
+        <div class="contact-card">
+
+            <form>
+
+                <label>Имя</label>
+                <input type="text" placeholder="Как к вам обращаться">
+
+                <label>Телефон</label>
+                <input type="tel" placeholder="+7 (999) 123-45-67">
+
+                <label>E-mail</label>
+                <input type="email" placeholder="example@mail.ru">
+
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Я даю согласие на обработку персональных данных</span>
+                </label>
+
+                <button type="submit">
+                    Оставить заявку
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+</section>
 </body>
 </html>
