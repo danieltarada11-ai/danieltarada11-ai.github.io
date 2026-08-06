@@ -847,6 +847,9 @@
       });
       if (response.ok) {
         document.getElementById('formBody').classList.add('hide');
+      if (typeof ym === 'function') {
+      ym(111136706, 'reachGoal', 'form_submit');
+      }
         document.getElementById('thankYou').classList.add('show');
         form.reset();
       } else {
